@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beauty Salon in Kochi | Cucumba Beauty Salon</title>
+    <style>
+        /* --- RESET & BASE STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #222;
+            text-align: center;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: #666;
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .top-bar {
+            background-color: #f8f8f8;
+            font-size: 0.85rem;
+            padding: 8px 0;
+            text-align: right;
+            border-bottom: 1px solid #eee;
+        }
+
+        .top-bar span {
+            margin-left: 15px;
+            color: #666;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #000;
+            /* Using text for logo placeholder */
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #d4af37; /* Gold accent color */
+        }
+
+        .btn-appointment {
+            background-color: #000;
+            color: #fff !important;
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .btn-appointment:hover {
+            background-color: #333;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-buttons .btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 12px 30px;
+            border: 2px solid #fff;
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .hero-buttons .btn:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        /* --- BRANCHES SECTION --- */
+        .branches-section {
+            padding: 40px 0;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .branches-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .branch-tag {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about-section {
+            padding: 80px 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+            padding-right: 40px;
+            min-width: 300px;
+        }
+
+        .about-text h3 {
+            color: #d4af37;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .stat-item h4 {
+            font-size: 2rem;
+            color: #000;
+        }
+
+        /* --- SERVICES SECTION --- */
+        .services-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .service-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .service-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 20px;
+            color: #fff;
+            text-align: left;
+        }
+
+        .service-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        /* --- TESTIMONIALS --- */
+        .testimonials-section {
+            background-color: #f4f4f4;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .testimonial-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: left;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            font-size: 0.95rem;
+        }
+
+        .client-name {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .client-loc {
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Mobile menu hidden for simplicity */
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .about-section {
+                flex-direction: column;
+            }
+            .about-text {
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container top-bar">
+            <span>Bangalore</span>
+            <span>Kochi</span>
+            <span>Kottayam</span>
+            <span>Calicut</span>
+            <span>+91 98952 61111</span>
+        </div>
+        <div class="container nav-container">
+            <div class="logo">CUCUMBA</div>
+            <nav class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">About Us</a>
+                <a href="#">Services</a>
+                <a href="#">Bridal</a>
+                <a href="#">Makeover</a>
+                <a href="#">Contact</a>
+                <a href="#" class="btn-appointment">Book Appointment</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Switch up your look <br> with Cucumba!</h1>
+            <div class="hero-buttons">
+                <a href="#services" class="btn">Our Services</a>
+                <a href="#contact" class="btn">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="branches-section">
+        <div class="container">
+            <p>We have 8 branches across India at Kottayam, Kochi, Calicut, Alappuzha, Angamaly, Thodupuzha, Adoor & Bangalore.</p>
+            <div class="branches-list">
+                <span class="branch-tag">KOCHI</span>
+                <span class="branch-tag">BANGALORE</span>
+                <span class="branch-tag">CALICUT</span>
+                <span class="branch-tag">KOTTAYAM</span>
+                <span class="branch-tag">ALAPPUZHA</span>
+                <span class="branch-tag">ADOOR</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section container">
+        <div class="about-text">
+            <h3>About Us</h3>
+            <h2>Rediscover Your Inner Beauty</h2>
+            <p>Beauty, we believe, is more than what meets the eye. Being one of the best salons in Kochi, our team at Cucumba is driven to provide you with beauty services that are thoughtful and inclusive of your everyday beauty needs as well as special occasions.</p>
+            <p>Our beauty professionals are dedicated and well trained, and we use the best products, brands, and equipment available in the beauty industry.</p>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <h4>1000+</h4>
+                    <span>Happy Customers</span>
+                </div>
+                <div class="stat-item">
+                    <h4>10+</h4>
+                    <span>Years Experience</span>
+                </div>
+            </div>
+        </div>
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Salon Interior">
+        </div>
+    </section>
+
+    <section id="services" class="services-section">
+        <div class="container">
+            <h3>Transforming Lives</h3>
+            <h2>Our Services</h2>
+            <p>Look and feel your best with our specially curated hair and beauty services.</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1487412947132-26c244971044?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Bridal">
+                    <div class="service-overlay">
+                        <h3>Bridal</h3>
+                        <span>Makeup & Styling</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Hair">
+                    <div class="service-overlay">
+                        <h3>Hair</h3>
+                        <span>Cut, Color & Care</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Skin">
+                    <div class="service-overlay">
+                        <h3>Skin</h3>
+                        <span>Facials & Treatments</span>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Nails">
+                    <div class="service-overlay">
+                        <h3>Nails</h3>
+                        <span>Manicure & Pedicure</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <div class="container">
+            <h2>Our Clients Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"I have had a number of different treatments and they have all been excellent. The products used are exceptional and the staff is trained very well."</p>
+                    <div class="client-name">Manoj Mathew</div>
+                    <div class="client-loc">Vytila</div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"The best color I had in my whole life. My heart was red! And I exactly got what I wanted! Thank you so much Cucumba for the beautiful shade."</p>
+                    <div class="client-name">Nasneem</div>
+                    <div class="client-loc">Palarivattom</div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"I love coming to Cucumba. After a hectic week it's awesome to come here, relax and receive a warm and soothing treatment from the team."</p>
+                    <div class="client-name">Mercy Antony</div>
+                    <div class="client-loc">Kakkanad</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>About Us</h4>
+                    <p style="color: #999;">At Cucumba, we offer you the best-in-class services to meet your everyday beauty needs as well as for special occasions.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Bridal</a></li>
+                        <li><a href="#">Hair</a></li>
+                        <li><a href="#">Skin</a></li>
+                        <li><a href="#">Nails</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul style="color: #999;">
+                        <li>Triton Towers, Kochi</li>
+                        <li>+91 98952 61111</li>
+                        <li>info@cucumba.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Cucumba Hair & Beauty Family Lounge. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
